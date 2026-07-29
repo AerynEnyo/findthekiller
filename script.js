@@ -180,3 +180,15 @@ function addBackButton(){
 }
 
 showFolders();
+
+const closePopup = document.getElementById("closePopup");
+
+closePopup.onclick = () => {
+    popup.style.display = "none";
+};
+
+popup.onclick = (e) => {
+    if (e.target === popup) {
+        popup.style.display = "none";
+    }
+};
