@@ -2,216 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-    <title>Mystery Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find the Killer</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="app">
+<header>
+    <h1>Find the Killer</h1>
+</header>
 
-    <!-- ================= HEADER ================= -->
+<main>
 
-    <header class="topbar">
+    <section id="notebook">
+        <h2>Notebook</h2>
 
-        <div class="title">
+        <textarea placeholder="Type your notes here..."></textarea>
+    </section>
 
-            <h1>Mystery Game</h1>
-            <span class="subtitle">
-                Eliminate possibilities until only one remains.
-            </span>
+    <section id="witnesses">
+        <h2>Witness's</h2>
 
-        </div>
-
-        <div class="topButtons">
-
-            <button id="helpBtn">
-                Help
-            </button>
-
-            <button id="settingsBtn">
-                Settings
-            </button>
+        <div class="witnessList">
 
         </div>
+    </section>
 
-    </header>
-
-
-    <!-- ================= MAIN ================= -->
-
-    <main class="layout">
-
-        <!-- LEFT -->
-
-        <aside class="leftPanel">
-
-            <div class="panel">
-
-                <h2>Categories</h2>
-
-                <div id="categoryList">
-
-                </div>
-
-            </div>
-
-            <div class="panel">
-
-                <h2>Progress</h2>
-
-                <div id="progressArea">
-
-                    <div class="progressBar">
-
-                        <div
-                            id="progressFill"
-                            class="fill">
-
-                        </div>
-
-                    </div>
-
-                    <div id="progressText">
-                        0%
-                    </div>
-
-                </div>
-
-            </div>
-
-        </aside>
-
-
-
-        <!-- CENTER -->
-
-        <section class="gameArea">
-
-            <div class="panel">
-
-                <div class="guessHeader">
-
-                    <h2>Make a Guess</h2>
-
-                </div>
-
-                <div class="guessControls">
-
-                    <input
-                        id="guessInput"
-                        type="text"
-                        autocomplete="off"
-                        placeholder="Enter a guess...">
-
-                    <button
-                        id="guessButton">
-
-                        Guess
-
-                    </button>
-
-                </div>
-
-                <div id="feedback">
-
-                </div>
-
-            </div>
-
-
-            <div class="panel">
-
-                <h2>Game Log</h2>
-
-                <div id="history">
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- RIGHT -->
-
-        <aside class="rightPanel">
-
-            <div class="panel">
-
-                <h2>Items</h2>
-
-                <div id="itemList">
-
-                </div>
-
-            </div>
-
-            <div class="panel">
-
-                <h2>Notes</h2>
-
-                <textarea
-                    id="notes"
-                    placeholder="Write anything here..."></textarea>
-
-            </div>
-
-        </aside>
-
-    </main>
-
-</div>
-
-
-
-<!-- ================= MODAL ================= -->
-
-<div
-    id="modal"
-    class="hidden">
-
-    <div class="modalWindow">
-
-        <div class="modalHeader">
-
-            <h2 id="modalTitle">
-
-                Title
-
-            </h2>
-
-            <button
-                id="closeModal">
-
-                ✕
-
-            </button>
-
-        </div>
-
-        <div
-            id="modalContent">
-
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- ================= TOAST ================= -->
-
-<div
-    id="toastContainer">
-
-</div>
+</main>
 
 <script src="script.js"></script>
 
