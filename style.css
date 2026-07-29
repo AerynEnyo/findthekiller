@@ -132,14 +132,14 @@ main{
 }
 
 .witnessBtn img{
-    width:64px;
-    height:64px;
+    width:128px;
+    height:128px;
     object-fit:contain;
     margin-bottom:5px;
 }
 
 .witnessBtn span{
-    font-size:12px;
+    font-size:px;
     text-align:center;
     word-break:break-word;
 }
