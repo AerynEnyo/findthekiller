@@ -82,16 +82,93 @@ main{
     margin-bottom:15px;
 }
 
+/* ---------- Witnesses ---------- */
+
+#witnesses{
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+}
+
+#witnesses h2{
+    text-align:center;
+    margin-bottom:15px;
+}
+
 .witnessList{
     flex:1;
 
     background:#111;
-
     border:1px solid #666;
-
     border-radius:6px;
 
     padding:15px;
 
     overflow-y:auto;
+
+    display:flex;
+    flex-wrap:wrap;
+    align-content:flex-start;
+    gap:15px;
+}
+
+.witnessBtn{
+    width:90px;
+    background:transparent;
+    border:none;
+    color:white;
+    cursor:pointer;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    padding:6px;
+}
+
+.witnessBtn:hover{
+    background:#2c2c2c;
+    border-radius:6px;
+}
+
+.witnessBtn img{
+    width:64px;
+    height:64px;
+    object-fit:contain;
+    margin-bottom:5px;
+}
+
+.witnessBtn span{
+    font-size:12px;
+    text-align:center;
+    word-break:break-word;
+}
+
+/* ---------- Image Popup ---------- */
+
+#imagePopup{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.85);
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+}
+
+#popupImage{
+    max-width:90%;
+    max-height:90%;
+}
+
+#closePopup{
+    position:absolute;
+    top:20px;
+    right:35px;
+
+    color:white;
+    font-size:50px;
+    cursor:pointer;
 }
