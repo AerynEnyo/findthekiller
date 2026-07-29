@@ -1,0 +1,97 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    height:100%;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#222;
+    color:white;
+}
+
+/* ---------- Header ---------- */
+
+header{
+    height:70px;
+    background:#333;
+    border-bottom:2px solid #555;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+header h1{
+    font-size:34px;
+}
+
+/* ---------- Layout ---------- */
+
+main{
+    display:grid;
+    grid-template-columns:1fr 2fr;
+    height:calc(100vh - 70px);
+}
+
+/* ---------- Notebook ---------- */
+
+#notebook{
+    border-right:2px solid #555;
+    padding:20px;
+
+    display:flex;
+    flex-direction:column;
+}
+
+#notebook h2{
+    text-align:center;
+    margin-bottom:15px;
+}
+
+#notebook textarea{
+    flex:1;
+
+    resize:none;
+
+    background:#111;
+    color:white;
+
+    border:1px solid #666;
+
+    padding:12px;
+
+    font-size:16px;
+
+    outline:none;
+}
+
+/* ---------- Witnesses ---------- */
+
+#witnesses{
+    padding:20px;
+
+    display:flex;
+    flex-direction:column;
+}
+
+#witnesses h2{
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.witnessList{
+    flex:1;
+
+    background:#111;
+
+    border:1px solid #666;
+
+    border-radius:6px;
+
+    padding:15px;
+
+    overflow-y:auto;
+}
