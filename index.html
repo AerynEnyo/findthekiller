@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Mystery Game</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="topbar">
+
+        <div class="title">
+
+            <h1>Mystery Game</h1>
+            <span class="subtitle">
+                Eliminate possibilities until only one remains.
+            </span>
+
+        </div>
+
+        <div class="topButtons">
+
+            <button id="helpBtn">
+                Help
+            </button>
+
+            <button id="settingsBtn">
+                Settings
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="layout">
+
+        <!-- LEFT -->
+
+        <aside class="leftPanel">
+
+            <div class="panel">
+
+                <h2>Categories</h2>
+
+                <div id="categoryList">
+
+                </div>
+
+            </div>
+
+            <div class="panel">
+
+                <h2>Progress</h2>
+
+                <div id="progressArea">
+
+                    <div class="progressBar">
+
+                        <div
+                            id="progressFill"
+                            class="fill">
+
+                        </div>
+
+                    </div>
+
+                    <div id="progressText">
+                        0%
+                    </div>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- CENTER -->
+
+        <section class="gameArea">
+
+            <div class="panel">
+
+                <div class="guessHeader">
+
+                    <h2>Make a Guess</h2>
+
+                </div>
+
+                <div class="guessControls">
+
+                    <input
+                        id="guessInput"
+                        type="text"
+                        autocomplete="off"
+                        placeholder="Enter a guess...">
+
+                    <button
+                        id="guessButton">
+
+                        Guess
+
+                    </button>
+
+                </div>
+
+                <div id="feedback">
+
+                </div>
+
+            </div>
+
+
+            <div class="panel">
+
+                <h2>Game Log</h2>
+
+                <div id="history">
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- RIGHT -->
+
+        <aside class="rightPanel">
+
+            <div class="panel">
+
+                <h2>Items</h2>
+
+                <div id="itemList">
+
+                </div>
+
+            </div>
+
+            <div class="panel">
+
+                <h2>Notes</h2>
+
+                <textarea
+                    id="notes"
+                    placeholder="Write anything here..."></textarea>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+</div>
+
+
+
+<!-- ================= MODAL ================= -->
+
+<div
+    id="modal"
+    class="hidden">
+
+    <div class="modalWindow">
+
+        <div class="modalHeader">
+
+            <h2 id="modalTitle">
+
+                Title
+
+            </h2>
+
+            <button
+                id="closeModal">
+
+                ✕
+
+            </button>
+
+        </div>
+
+        <div
+            id="modalContent">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= TOAST ================= -->
+
+<div
+    id="toastContainer">
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
