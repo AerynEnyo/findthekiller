@@ -81,6 +81,8 @@ const crimeScene = [
 
 const list = document.querySelector(".witnessList");
 const title = document.getElementById("folderTitle");
+const popup = document.getElementById("popup");
+const popupImage = document.getElementById("popupImage");
 
 function showFolders(){
 
