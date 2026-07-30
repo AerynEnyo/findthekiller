@@ -17,52 +17,10 @@ const witnesses = [
     {
         name: "Witness #1",
         thumb: "images/Case1.png",
-        image: "images/Case1Opened.png"
-    },
-    {
-        name: "Witness #2",
-        thumb: "images/Case1.png",
-        image: "images/Case1Opened.png"
-    },
-	{
-        name: "Witness #3",
-        thumb: "images/Case1.png",
-        image: "images/Case1Opened.png"
-    },
-    {
-        name: "Witness #4",
-        thumb: "images/Case1.png",
-        image: "images/Case1Opened.png"
-    },
-	{
-        name: "Witness #5",
-        thumb: "images/Case1.png",
-        image: "images/Case1Opened.png"
-    },
-    {
-        name: "Witness #6",
-        thumb: "images/Case1.png",
-        image: "images/Case1Opened.png"
-    },
-	{
-        name: "Witness #7",
-        thumb: "images/Case1.png",
-        image: "images/Case1Opened.png"
-    },
-    {
-        name: "Witness #8",
-        thumb: "images/Case1.png",
-        image: "images/Case1Opened.png"
-    },
-	{
-        name: "Witness #9",
-        thumb: "images/Case1.png",
-        image: "images/Case1Opened.png"
-    },
-    {
-        name: "Witness #10",
-        thumb: "images/Case1.png",
-        image: "images/Case1Opened.png"
+        images: [
+        "images/Case1Opened.png",
+        "images/Case1Notes.png"
+    ]
     }
 ];
 
@@ -83,6 +41,15 @@ const list = document.querySelector(".witnessList");
 const title = document.getElementById("folderTitle");
 const popup = document.getElementById("popup");
 const popupImage = document.getElementById("popupImage");
+let scale = 1;
+let isDragging = false;
+let startX = 0;
+let startY = 0;
+let translateX = 0;
+let translateY = 0;
+let currentImages = [];
+let currentImage = 0;
+
 
 function showFolders(){
 
@@ -152,12 +119,22 @@ function addImageButton(item){
         <span>${item.name}</span>
     `;
 
-    btn.onclick=()=>{
+	btn.onclick = () => {
 
-        popupImage.src=item.image;
-        popup.style.display="flex";
+		currentImages = item.images;
+		currentImage = 0;
 
-    };
+		popupImage.src = currentImages[currentImage];
+
+		scale = 1;
+		translateX = 0;
+		translateY = 0;
+
+		popupImage.style.transform =
+			`translate(0px, 0px) scale(1)`;
+
+		popup.style.display = "flex";
+	};
 
     list.appendChild(btn);
 
@@ -191,4 +168,81 @@ popup.onclick = (e) => {
     if (e.target === popup) {
         popup.style.display = "none";
     }
+};
+popupImage.addEventListener("wheel", (e) => {
+
+    e.preventDefault();
+
+    if (e.deltaY < 0)
+        scale *= 1.15;
+    else
+        scale /= 1.15;
+
+    scale = Math.max(1, Math.min(scale, 6));
+
+    popupImage.style.transform =
+        `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+
+});
+
+popupImage.addEventListener("mousedown", (e) => {
+
+    if (scale === 1) return;
+
+    isDragging = true;
+
+    startX = e.clientX - translateX;
+    startY = e.clientY - translateY;
+
+    popupImage.style.cursor = "grabbing";
+
+});
+
+window.addEventListener("mousemove", (e) => {
+
+    if (!isDragging) return;
+
+    translateX = e.clientX - startX;
+    translateY = e.clientY - startY;
+
+    popupImage.style.transform =
+        `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+
+});
+
+window.addEventListener("mouseup", () => {
+
+    isDragging = false;
+
+    popupImage.style.cursor = "grab";
+
+});
+
+const prevImage = document.getElementById("prevImage");
+const nextImage = document.getElementById("nextImage");
+
+prevImage.onclick = () => {
+
+    if (currentImages.length === 0) return;
+
+    currentImage--;
+
+    if (currentImage < 0)
+        currentImage = currentImages.length - 1;
+
+    popupImage.src = currentImages[currentImage];
+
+};
+
+nextImage.onclick = () => {
+
+    if (currentImages.length === 0) return;
+
+    currentImage++;
+
+    if (currentImage >= currentImages.length)
+        currentImage = 0;
+
+    popupImage.src = currentImages[currentImage];
+
 };
